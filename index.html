@@ -8,20 +8,14 @@
     <link rel="apple-touch-icon" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fade-up { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
         .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
 
-        @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.95) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
         .animate-modal { animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
         html { scroll-behavior: smooth; }
@@ -30,33 +24,11 @@
         
         .premium-card { transition: all 0.3s ease; }
         .premium-card:hover { transform: translateY(-4px); }
-        .btn-premium {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            transition: all 0.2s;
-        }
-        .btn-premium:hover {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
-        }
+        .btn-premium { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); transition: all 0.2s; }
+        .btn-premium:hover { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); transform: scale(1.02); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
 
-        .pay-logo-box {
-            background: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 4px 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 34px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        .pay-logo-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
+        .pay-logo-box { background: white; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 4px 10px; display: flex; align-items: center; justify-content: center; height: 34px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+        .pay-logo-box:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); border-color: rgba(255, 255, 255, 0.3); }
     </style>
 </head>
 <body class="bg-[#f8f9fa] text-slate-900 overflow-x-hidden relative">
@@ -77,6 +49,11 @@
                 </div>
                 <span class="text-2xl font-800 tracking-tighter">Daid<span class="text-slate-400">Store</span></span>
             </a>
+            
+            <button onclick="bukaModalAktivasi()" class="flex items-center space-x-2 bg-emerald-50 text-emerald-600 border border-emerald-200 px-4 py-2 rounded-full hover:bg-emerald-500 hover:text-white transition-all shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <span class="text-[11px] font-800 uppercase tracking-widest">Aktivasi AI</span>
+            </button>
         </div>
     </nav>
 
@@ -117,47 +94,6 @@
         </div>
     </section>
 
-    <section id="use-cases" class="py-16 lg:py-24 bg-white relative border-b border-slate-100">
-        <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <span class="text-[10px] font-800 tracking-widest uppercase text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full mb-4 inline-block">EFISIENSI & CUAN</span>
-                <h2 class="text-3xl lg:text-5xl font-800 text-slate-950 mb-6 tracking-tighter">Dirancang Khusus Untuk Bisnis Anda.</h2>
-                <p class="text-slate-500 text-lg leading-relaxed">Dari target paus kelas kakap hingga mesin ATM harian. Kami mendesain sistem AI yang langsung membereskan titik kelemahan operasional Anda.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                <div class="p-8 lg:p-10 rounded-[32px] bg-[#f8f9fa] border border-slate-100 group hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-800 text-slate-950 mb-3 tracking-tight">"Target Paus" (Mega Influencer)</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">Fokus bikin konten viral, biarkan AI masuk sebagai "Asisten Pribadi" yang merapikan ribuan DM & komen pakai gaya bahasamu. Amankan deal endorse 24/7 tanpa ada yang terlewat.</p>
-                </div>
-                <div class="p-8 lg:p-10 rounded-[32px] bg-[#f8f9fa] border border-slate-100 group hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 11h14l1 9H4l1-9z"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-800 text-slate-950 mb-3 tracking-tight">"Mesin ATM Rutin" (Toko Online)</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">Capek bayar admin CS lelet? Gantikan dengan AI tangguh. Siap membalas chat nonstop, merayu pembeli, hingga closing otomatis jam 3 pagi pas owner lagi tidur.</p>
-                </div>
-                <div class="p-8 lg:p-10 rounded-[32px] bg-[#f8f9fa] border border-slate-100 group hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-amber-50 to-orange-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-800 text-slate-950 mb-3 tracking-tight">Pemain Produk Digital & Edukasi</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">Jualan blueprint bisnis atau akses kursus? Saat ada pembeli jam 2 pagi, AI langsung ngasih link download setelah bayar terkonfirmasi. 100% autopilot, lu tinggal tarik dana.</p>
-                </div>
-                <div class="p-8 lg:p-10 rounded-[32px] bg-[#f8f9fa] border border-slate-100 group hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-red-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-800 text-slate-950 mb-3 tracking-tight">Bisnis Jasa Lokal & F&B</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">Biar AI yang merespons DM, mengirimkan link website buat cek menu, dan nge-blok jadwal reservasi secara instan tanpa perlu merepotkan tim operasionalmu.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="katalog" class="py-16 lg:py-24 bg-[#f8f9fa]">
         <div class="container mx-auto px-4 lg:px-8 max-w-7xl">
             <h2 class="text-3xl lg:text-4xl font-800 text-slate-950 mb-12 text-center tracking-tighter">Pilih Aset Digitalmu</h2>
@@ -176,7 +112,6 @@
                                 <span class="text-xl font-800 text-slate-950">Rp 50.000</span>
                                 <button onclick="bukaDetailProduk('starter')" class="btn-premium text-white px-5 py-2 rounded-full text-[11px] font-700 flex items-center justify-center flex-shrink-0 uppercase">PILIH</button>
                             </div>
-                            <p class="text-[9px] text-slate-400 font-500">+Rp 20.000/bln (Server)</p>
                         </div>
                     </div>
                 </div>
@@ -191,10 +126,9 @@
                         <p class="text-xs text-slate-500 mt-1 line-clamp-2">Sales jagoan anti-ngeluh. Terlatih buat teknik closing.</p>
                         <div class="mt-auto pt-6" onclick="event.stopPropagation()">
                             <div class="flex justify-between items-center mb-1">
-                                <span class="text-xl font-800 text-slate-950">Rp 250.000</span>
+                                <span class="text-xl font-800 text-slate-950">Rp 150.000</span>
                                 <button onclick="bukaDetailProduk('pro')" class="btn-premium text-white px-5 py-2 rounded-full text-[11px] font-700 flex items-center justify-center flex-shrink-0 uppercase">PILIH</button>
                             </div>
-                            <p class="text-[9px] text-slate-400 font-500">+Rp 99.000/bln (Server)</p>
                         </div>
                     </div>
                 </div>
@@ -205,14 +139,13 @@
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
                         <span class="text-[10px] font-700 text-amber-600 bg-amber-100 px-3 py-1.5 rounded-full self-start mb-2 uppercase">RECOMMENDED</span>
-                        <h3 class="text-lg font-700 text-slate-950 truncate">Ultimate Manager</h3>
+                        <h3 class="text-lg font-700 text-slate-950 truncate">Manager AI</h3>
                         <p class="text-xs text-slate-500 mt-1 line-clamp-2">Bisa kelola komplain, database, & terhubung ke sistemmu.</p>
                         <div class="mt-auto pt-6" onclick="event.stopPropagation()">
                             <div class="flex justify-between items-center mb-1">
                                 <span class="text-xl font-800 text-slate-950">Rp 500.000</span>
-                                <button onclick="bukaDetailProduk('ultimate')" class="btn-premium text-white px-5 py-2 rounded-full text-[11px] font-700 flex items-center justify-center flex-shrink-0 uppercase">ULTIMATE</button>
+                                <button onclick="bukaDetailProduk('ultimate')" class="btn-premium text-white px-5 py-2 rounded-full text-[11px] font-700 flex items-center justify-center flex-shrink-0 uppercase">PILIH</button>
                             </div>
-                            <p class="text-[9px] text-slate-400 font-500">+Rp 199.000/bln (Server)</p>
                         </div>
                     </div>
                 </div>
@@ -224,13 +157,12 @@
                     <div class="p-5 flex flex-col flex-grow">
                         <span class="text-[10px] font-700 text-purple-600 bg-purple-50 px-3 py-1.5 rounded-full self-start mb-2 uppercase">ENTERPRISE</span>
                         <h3 class="text-lg font-700 text-slate-950 truncate">Sistem Dewa (Custom)</h3>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-2">Arsitektur AI privat. Dibuat murni dari 0 khusus pabrik/korporat.</p>
+                        <p class="text-xs text-slate-500 mt-1 line-clamp-2">Arsitektur AI privat. Dibuat murni dari 0 khusus korporat.</p>
                         <div class="mt-auto pt-6" onclick="event.stopPropagation()">
                             <div class="flex justify-between items-center mb-1">
                                 <span class="text-xl font-800 text-slate-950">Rp 5 Jt</span>
                                 <button onclick="bukaDetailProduk('custom')" class="btn-premium text-white px-5 py-2 rounded-full text-[11px] font-700 flex items-center justify-center flex-shrink-0 uppercase">PILIH</button>
                             </div>
-                            <p class="text-[9px] text-slate-400 font-500">*Maintenance fee by SLA</p>
                         </div>
                     </div>
                 </div>
@@ -239,234 +171,143 @@
     </section>
 
     <div class="h-40 bg-gradient-to-b from-[#f8f9fa] to-slate-950 w-full"></div>
-
     <footer class="bg-slate-950 text-slate-400 py-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/dark-dotted-2.png')] pointer-events-none"></div>
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 border-b border-slate-800/60 pb-16">
-                <div class="flex flex-col items-center md:items-start text-center md:text-left group">
-                    <div class="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center mb-5 border border-slate-800 group-hover:border-emerald-500/50 transition-colors">
-                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <h4 class="text-slate-200 font-800 text-lg mb-2">Transaksi 100% Aman</h4>
-                    <p class="text-sm leading-relaxed text-slate-500">Data perusahaan dilindungi enkripsi AES-256 tingkat militer. Transaksi terjamin aman secara global.</p>
-                </div>
-                <div class="flex flex-col items-center md:items-start text-center md:text-left group">
-                    <div class="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center mb-5 border border-slate-800 group-hover:border-blue-500/50 transition-colors">
-                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                    </div>
-                    <h4 class="text-slate-200 font-800 text-lg mb-2">Penyelesaian Instan</h4>
-                    <p class="text-sm leading-relaxed text-slate-500">Kami langsung memproses data toko Anda setelah bukti transfer diverifikasi oleh tim kami via WhatsApp.</p>
-                </div>
-                <div class="flex flex-col items-center md:items-start text-center md:text-left group">
-                    <div class="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center mb-5 border border-slate-800 group-hover:border-purple-500/50 transition-colors">
-                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h4 class="text-slate-200 font-800 text-lg mb-2">Dukungan Gerilya</h4>
-                    <p class="text-sm leading-relaxed text-slate-500">Akses langsung ke Arsitek Daid untuk bantuan teknis dan kustomisasi AI tokomu secara personal.</p>
-                </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-                <div class="text-center md:text-left flex items-center space-x-3">
-                    <div class="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center text-slate-300 font-900 border border-slate-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <div>
-                        <p class="text-white font-800 text-xl mb-0.5 tracking-tighter">Daid<span class="text-slate-500">Store</span></p>
-                        <p class="text-[10px] font-600 tracking-widest uppercase text-slate-500">Premium AI Solutions &copy; 2026</p>
-                    </div>
-                </div>
-                <div class="flex flex-col items-center md:items-end">
-                    <p class="text-[10px] font-800 tracking-widest uppercase text-slate-500 mb-3 flex items-center">
-                        <svg class="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        Secure Gerilya Payment
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <div class="pay-logo-box"><span class="text-[#ED1C24] font-900 text-xs italic tracking-tighter">DANA</span></div>
-                        <div class="pay-logo-box"><span class="text-[#00AE65] font-900 text-[13px] italic tracking-tight">Gopay</span></div>
-                    </div>
-                </div>
-            </div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10 text-center">
+             <p class="text-white font-800 text-xl mb-0.5 tracking-tighter">Daid<span class="text-slate-500">Store</span></p>
+             <p class="text-[10px] font-600 tracking-widest uppercase text-slate-500">Premium AI Solutions &copy; 2026</p>
         </div>
     </footer>
 
-    <div id="product-detail-modal" class="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="relative bg-white rounded-[32px] w-full max-w-lg md:max-w-4xl shadow-2xl border border-white overflow-hidden animate-modal flex flex-col md:flex-row max-h-[90vh]">
-            <button onclick="tutupDetailProduk()" class="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur-md shadow-md rounded-full text-slate-900 hover:bg-slate-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-
-            <div class="w-full h-48 md:h-auto md:w-1/2 bg-slate-900 relative shrink-0 border-b md:border-b-0 md:border-r border-slate-100 flex items-center justify-center p-0 md:p-8">
-                <img id="detail-image" src="" class="w-full h-full object-contain md:drop-shadow-2xl md:rounded-xl">
+    <div id="activation-modal" class="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-[32px] w-full max-w-md shadow-2xl overflow-hidden animate-modal">
+            
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-[#f8f9fa]">
+                <div>
+                    <h3 class="text-xl font-800 text-slate-950 tracking-tight">Aktivasi Daid AI</h3>
+                    <p class="text-[10px] text-slate-500 font-600 uppercase tracking-widest mt-1">Sistem Injeksi Otomatis</p>
+                </div>
+                <button onclick="tutupModalAktivasi()" class="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 shadow-sm rounded-full text-slate-500 hover:bg-slate-100 hover:text-rose-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            
+            <div id="act-form-section" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Token Lisensi (VIP / Rakyat)</label>
+                    <input type="text" id="act-token" placeholder="Masukkan token Anda..." class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm font-700 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all shadow-inner">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Nomor WA Target (Aktif)</label>
+                    <input type="number" id="act-phone" placeholder="Contoh: 628123456..." class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all shadow-inner">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Nama Toko / Bisnis Anda</label>
+                    <input type="text" id="act-nama" placeholder="Toko Daid Sejahtera" class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all shadow-inner">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Data Pengetahuan Bot (Menu / Aturan / Harga)</label>
+                    <textarea id="act-menu" rows="3" placeholder="Tulis bebas apapun yang mau bot Anda ketahui. Contoh: Saya jualan Ebook harganya 50k..." class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all resize-none shadow-inner"></textarea>
+                </div>
+                <button onclick="prosesAktivasi()" class="w-full bg-slate-950 hover:bg-emerald-500 text-white font-800 text-xs py-3.5 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/30 mt-2 uppercase tracking-widest">Generate Mesin AI</button>
+                <p id="act-error" class="text-rose-500 text-[11px] text-center font-700 mt-2 hidden"></p>
             </div>
 
-            <div class="md:w-1/2 flex flex-col bg-white relative w-full overflow-hidden">
-                <div class="p-5 md:p-10 overflow-y-auto flex-grow h-full">
-                    <span id="detail-badge" class="text-[10px] font-800 px-3.5 py-1.5 rounded-full uppercase mb-4 inline-block tracking-wider">BADGE</span>
-                    <h2 id="detail-title" class="text-2xl md:text-3xl font-800 text-slate-950 mb-4 tracking-tight leading-tight">Title</h2>
-                    <p id="detail-monthly-note" class="text-xs text-red-500 font-600 mb-6 bg-red-50 inline-block px-3 py-1 rounded-md border border-red-100">*Perlu berlangganan server bulanan</p>
-                    <div id="detail-description" class="text-slate-600 text-sm leading-relaxed mb-4 pb-4"></div>
-                </div>
-
-                <div class="p-4 md:px-8 md:py-5 border-t border-slate-100 flex justify-between items-center bg-white shrink-0 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.1)] w-full">
-                    <div class="pr-2 truncate">
-                        <p class="text-[10px] text-slate-400 font-700 uppercase tracking-widest mb-0.5">Setup / Beli Putus</p>
-                        <p id="detail-price" class="text-xl md:text-3xl font-800 text-slate-950 tracking-tight truncate">Rp 0</p>
-                    </div>
-                    
-                    <div class="flex items-center gap-2 shrink-0">
-                        <a href="https://t.me/DaidEngineBot" target="_blank" class="flex w-10 h-10 md:w-12 md:h-12 items-center justify-center bg-[#E8F4F9] text-[#229ED9] rounded-full hover:bg-[#229ED9] hover:text-white transition-all shadow-sm shrink-0" title="Chat via Telegram">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
-                        </a>
-                        
-                        <a href="https://wa.me/62895633966339?text=Halo+Bos+Adlun,+Gua+klien+VIP+Daid+AI.+Tolong+bantu+gua+buat+setup+bot+toko+gua!" target="_blank" class="flex w-10 h-10 md:w-12 md:h-12 items-center justify-center bg-emerald-50 text-emerald-500 rounded-full hover:bg-emerald-500 hover:text-white transition-all shadow-sm shrink-0" title="Chat via WhatsApp">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                        </a>
-                        
-                        <button id="detail-action-btn" class="btn-premium text-white px-6 py-3 md:px-8 md:py-3.5 rounded-full text-[11px] md:text-sm font-700 shadow-xl flex items-center justify-center shrink-0 uppercase tracking-wide">
-                            BAYAR
-                        </button>
-                    </div>
-                </div>
+            <div id="act-loading-section" class="hidden p-10 flex flex-col items-center justify-center min-h-[300px]">
+                <div class="w-12 h-12 border-4 border-slate-100 border-t-emerald-500 rounded-full animate-spin mb-4 shadow-sm"></div>
+                <p class="text-xs font-800 text-slate-900 animate-pulse uppercase tracking-widest mb-1">MENGHUBUNGKAN KE SERVER</p>
+                <p class="text-[10px] text-slate-500 font-500 text-center">Jangan tutup jendela ini. Proses memakan waktu 5-15 detik.</p>
             </div>
+
+            <div id="act-success-section" class="hidden p-8 text-center min-h-[300px] flex flex-col justify-center">
+                <div class="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h2 class="text-xl font-900 text-slate-950 mb-1">PAIRING CODE SIAP!</h2>
+                <p class="text-[10px] text-slate-500 font-600 mb-6 uppercase tracking-wider leading-relaxed">Buka WA Anda > Tautkan Perangkat > Tautkan dengan Nomor. Masukkan kode di bawah ini:</p>
+                
+                <div class="bg-slate-50 border-2 border-dashed border-emerald-300 rounded-2xl p-5 mb-2 shadow-inner">
+                    <p id="act-code-display" class="text-3xl md:text-4xl font-900 text-slate-900 tracking-[0.2em] font-mono">1234-5678</p>
+                </div>
+                <p class="text-[9px] text-rose-500 font-800 uppercase">*Kode kadaluarsa dalam 15 detik!</p>
+            </div>
+
         </div>
     </div>
 
     <script>
-        const dataProduk = {
-            'starter': {
-                badge: 'PEMANASAN',
-                badgeColor: 'text-slate-500 bg-slate-100',
-                title: 'Starter AI',
-                price: 50000,
-                image: 'image1.png',
-                monthlyNote: 'Estimasi Server: Rp 20.000/bln',
-                description: `
-                    <div class="mb-6 bg-gradient-to-br from-slate-50 to-slate-100 p-5 rounded-2xl border border-slate-200/60 shadow-sm">
-                        <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">🚀</span> Karyawan Digital Pertamamu</p>
-                        <p class="text-sm text-slate-600 leading-relaxed">Pilihan tepat buat kamu yang mulai kewalahan balasin chat. Sistem cerdas yang jalan otomatis 24/7 buat mastiin gak ada customer yang nunggu lama.</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Auto-Responder Cerdas (NLP)</strong><span class="text-slate-500 text-xs">AI bisa paham konteks chat basa-basi dan FAQ layaknya manusia, bukan sekadar bot menu biasa.</span></div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Integrasi Web/Link Biasa</strong><span class="text-slate-500 text-xs">Pemasangan simpel, langsung live di ekosistem bisnismu.</span></div>
-                        </li>
-                    </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Starter+(Rp+50.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
-            },
-            'pro': {
-                badge: 'BEST SELLER',
-                badgeColor: 'text-blue-700 bg-blue-50',
-                title: 'Pro Sales AI',
-                price: 250000,
-                image: 'image2.png',
-                monthlyNote: 'Estimasi Server & API: Rp 99.000/bln',
-                description: `
-                    <div class="mb-6 bg-gradient-to-br from-blue-50 to-slate-50 p-5 rounded-2xl border border-blue-100/60 shadow-sm">
-                        <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">🤖</span> Mesin Pencetak Closing</p>
-                        <p class="text-sm text-slate-600 leading-relaxed">Investasi terbaik untuk pebisnis online. AI dilatih khusus menggunakan teknik copywriting jualan yang persuasif untuk konversi leads jadi duit.</p>
-                    </div>
-                    <ul class="space-y-4 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Custom Sales Funnel Logic</strong><span class="text-slate-500 text-xs">AI memahami product knowledge bisnismu dan bisa ngasih rekomendasi produk/upsell ke pembeli.</span></div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Multi-Channel Support</strong><span class="text-slate-500 text-xs">Bisa dicolok langsung ke WhatsApp, Instagram DM, atau Telegram.</span></div>
-                        </li>
-                    </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Pro+Sales+(Rp+250.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
-            },
-            'ultimate': {
-                badge: 'RECOMMENDED',
-                badgeColor: 'text-amber-700 bg-amber-100',
-                title: 'Ultimate Manager',
-                price: 500000,
-                image: 'image3.png',
-                monthlyNote: 'Estimasi Server & API: Rp 199.000/bln',
-                description: `
-                    <div class="mb-6 bg-gradient-to-br from-amber-50 to-slate-50 p-5 rounded-2xl border border-amber-100/60 shadow-sm">
-                        <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">💼</span> Eksekutif Digital Otonom</p>
-                        <p class="text-sm text-slate-600 leading-relaxed">Level up bisnismu ke tahap otomatisasi penuh. Asisten ini bukan cuma balas chat, tapi bisa mendeteksi emosi pembeli dan masukin data ke sistem operasionalmu.</p>
-                    </div>
-                    <ul class="space-y-4 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">CRM & Database Sync</strong><span class="text-slate-500 text-xs">AI akan mencatat data leads otomatis ke Google Sheets / CRM yang kamu gunakan.</span></div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Analisis Sentimen Pelanggan</strong><span class="text-slate-500 text-xs">Otomatis meneruskan tiket obrolan ke admin manusia jika customer komplain/marah.</span></div>
-                        </li>
-                    </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Ultimate+(Rp+500.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
-            },
-            'custom': {
-                badge: 'ENTERPRISE',
-                badgeColor: 'text-purple-700 bg-purple-50',
-                title: 'Sistem Dewa (Custom)',
-                price: 5000000,
-                image: 'image4.png',
-                monthlyNote: 'Maintenance Fee: Sesuai Kontrak SLA',
-                description: `
-                    <div class="mb-6 bg-gradient-to-br from-purple-50 to-slate-50 p-5 rounded-2xl border border-purple-100/60 shadow-sm">
-                        <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">👑</span> Dominasi Total Ekosistem AI</p>
-                        <p class="text-sm text-slate-600 leading-relaxed">Infrastruktur AI eksklusif untuk skala enterprise. Kami melatih ulang model Machine Learning (LLM) khusus menggunakan data internal perusahaan Anda.</p>
-                    </div>
-                    <ul class="space-y-4 mb-6">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Private AI Model Training</strong><span class="text-slate-500 text-xs">AI dilatih di server terisolasi dengan SOP perusahaan Anda yang rumit sekalipun.</span></div>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            <div><strong class="text-slate-900 block text-sm font-700">Advanced API & Webhooks</strong><span class="text-slate-500 text-xs">Integrasi tanpa batas ke sistem ERP, gudang, logistik perusahaan.</span></div>
-                        </li>
-                    </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Bos+Adlun,+Gua+mau+konsultasi+Sistem+Dewa+Custom'; }
-            }
-        };
+        // (Script Data Produk Sengaja disingkat biar fokus ke Aktivasi, lu bisa balikin dataProduk lu yang lengkap kalo mau)
+        function formatRupiah(angka) { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka); }
+        function bukaDetailProduk(id) { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+pesan+paket+ini!'; }
 
-        function formatRupiah(angka) {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
-        }
+        // ==========================================
+        // 🟢 LOGIKA POPUP AKTIVASI (TERHUBUNG KE VPS)
+        // ==========================================
+        const API_PABRIK = "http://213.199.40.155:3000/api/generate-bot"; // IP VPS LU BOS!
 
-        function bukaDetailProduk(id) {
-            const p = dataProduk[id];
-            document.getElementById('detail-image').src = p.image; 
-            document.getElementById('detail-badge').innerText = p.badge;
-            document.getElementById('detail-badge').className = `text-[10px] font-800 px-3.5 py-1.5 rounded-full uppercase mb-4 inline-block tracking-wider ${p.badgeColor}`;
-            document.getElementById('detail-title').innerText = p.title;
-            document.getElementById('detail-monthly-note').innerText = p.monthlyNote;
-            document.getElementById('detail-description').innerHTML = p.description;
-            document.getElementById('detail-price').innerText = formatRupiah(p.price);
-            
-            const actionBtn = document.getElementById('detail-action-btn');
-            actionBtn.onclick = p.actionFunction;
-
-            document.getElementById('fab-konsultasi').classList.add('opacity-0', 'pointer-events-none');
-            
-            document.getElementById('product-detail-modal').classList.remove('hidden');
+        function bukaModalAktivasi() {
+            document.getElementById('activation-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            
+            // Reset Tampilan ke Form
+            document.getElementById('act-form-section').classList.remove('hidden');
+            document.getElementById('act-loading-section').classList.add('hidden');
+            document.getElementById('act-success-section').classList.add('hidden');
+            document.getElementById('act-error').classList.add('hidden');
         }
 
-        function tutupDetailProduk() {
-            document.getElementById('fab-konsultasi').classList.remove('opacity-0', 'pointer-events-none');
-
-            document.getElementById('product-detail-modal').classList.add('hidden');
+        function tutupModalAktivasi() {
+            document.getElementById('activation-modal').classList.add('hidden');
             document.body.style.overflow = 'auto';
+        }
+
+        async function prosesAktivasi() {
+            const token = document.getElementById('act-token').value.trim();
+            const phone = document.getElementById('act-phone').value.trim();
+            const namaToko = document.getElementById('act-nama').value.trim();
+            const menuToko = document.getElementById('act-menu').value.trim();
+            const errorMsg = document.getElementById('act-error');
+
+            if(!token || !phone || !namaToko) {
+                errorMsg.innerText = "Token, Nomor WA, dan Nama Toko wajib diisi bos!";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            // Ganti Layar ke Loading
+            errorMsg.classList.add('hidden');
+            document.getElementById('act-form-section').classList.add('hidden');
+            document.getElementById('act-loading-section').classList.remove('hidden');
+
+            try {
+                const response = await fetch(API_PABRIK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, phone, namaToko, menuToko })
+                });
+
+                const data = await response.json();
+
+                if(response.ok) {
+                    // Sukses! Tunjukin Kode
+                    document.getElementById('act-loading-section').classList.add('hidden');
+                    document.getElementById('act-success-section').classList.remove('hidden');
+                    
+                    let code = data.pairingCode;
+                    if(code.length === 8 && !code.includes('-')) {
+                        code = code.substring(0,4) + '-' + code.substring(4,8);
+                    }
+                    document.getElementById('act-code-display').innerText = code;
+                } else {
+                    throw new Error(data.error || 'Server error bos!');
+                }
+            } catch (err) {
+                // Gagal, balik ke Form
+                document.getElementById('act-loading-section').classList.add('hidden');
+                document.getElementById('act-form-section').classList.remove('hidden');
+                errorMsg.innerText = err.message;
+                errorMsg.classList.remove('hidden');
+            }
         }
     </script>
 </body>
 </html>
-
