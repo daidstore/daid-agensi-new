@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daid Engine | Aktivasi AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+        body { font-family: 'JetBrains Mono', monospace; background-color: #020617; }
+        .glitch-effect { text-shadow: 2px 0 #0f0, -2px 0 #f00; animation: glitch 2s infinite linear alternate-reverse; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fadeUp 0.6s ease forwards; }
+    </style>
+</head>
+<body class="text-slate-300 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    
+    <div class="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none"></div>
+
+    <div class="w-full max-w-lg bg-slate-900/80 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl shadow-2xl relative z-10 animate-fade-up">
+        
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-800 text-white mb-2 tracking-tight">DAID<span class="text-emerald-500">ENGINE</span></h1>
+            <p class="text-xs text-slate-500 uppercase tracking-widest">Sistem Injeksi AI Otomatis</p>
+        </div>
+
+        <div id="form-section" class="space-y-5">
+            <div>
+                <label class="block text-xs font-700 text-slate-400 mb-1.5 uppercase">Token Rahasia</label>
+                <input type="text" id="input-token" placeholder="Contoh: VIP-X8K9A atau DAID-XXXXX" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-bold tracking-wider">
+            </div>
+            
+            <div>
+                <label class="block text-xs font-700 text-slate-400 mb-1.5 uppercase">Nomor WA Toko (Target Injeksi)</label>
+                <input type="number" id="input-phone" placeholder="Contoh: 628123456789" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-all">
+                <p class="text-[10px] text-slate-500 mt-1">*Pastikan WA ini aktif di HP Anda sekarang.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2">
+                    <label class="block text-xs font-700 text-slate-400 mb-1.5 uppercase">Nama Toko / Bisnis</label>
+                    <input type="text" id="input-nama" placeholder="DaidStore" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-all">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-700 text-slate-400 mb-1.5 uppercase">Daftar Menu & Harga (Singkat)</label>
+                <textarea id="input-menu" rows="3" placeholder="1. Paket Starter (50k)&#10;2. Paket Pro (150k)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-all resize-none"></textarea>
+            </div>
+
+            <button id="btn-generate" onclick="generateBot()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-800 text-sm py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] uppercase tracking-widest mt-4">
+                Nyalakan Mesin AI
+            </button>
+            <p id="error-msg" class="text-rose-500 text-xs text-center font-700 mt-3 hidden"></p>
+        </div>
+
+        <div id="loading-section" class="hidden flex flex-col items-center justify-center py-10">
+            <div class="w-12 h-12 border-4 border-slate-800 border-t-emerald-500 rounded-full animate-spin mb-4"></div>
+            <p class="text-sm font-700 text-emerald-400 animate-pulse">Menghubungkan ke Server Meta...</p>
+            <p class="text-xs text-slate-500 mt-2 text-center">Jangan tutup halaman ini. Proses butuh 5-15 detik.</p>
+        </div>
+
+        <div id="success-section" class="hidden text-center py-4">
+            <div class="w-16 h-16 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 class="text-xl font-800 text-white mb-2">MESIN SIAP!</h2>
+            <p class="text-xs text-slate-400 mb-6">Buka WhatsApp > Tautkan Perangkat > Tautkan dengan Nomor Telepon. Masukkan kode di bawah ini:</p>
+            
+            <div class="bg-slate-950 border-2 border-dashed border-emerald-500/50 rounded-2xl p-6 mb-6">
+                <p id="pairing-code-display" class="text-4xl md:text-5xl font-800 text-white tracking-[0.2em] glitch-effect">A1B2-C3D4</p>
+            </div>
+            
+            <p class="text-[10px] text-red-400 font-700 uppercase">*Kode expired dalam 15 detik! Segera masukkan!</p>
+        </div>
+
+    </div>
+
+    <script>
+        // GANTI INI SAMA IP CONTABO LU BOS! (Contoh: http://123.456.78.90:3000)
+        const API_URL = "http://IP_VPS_CONTABO_LU:3000/api/generate-bot";
+
+        async function generateBot() {
+            const token = document.getElementById('input-token').value.trim();
+            const phone = document.getElementById('input-phone').value.trim();
+            const namaToko = document.getElementById('input-nama').value.trim();
+            const menuToko = document.getElementById('input-menu').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            if(!token || !phone || !namaToko) {
+                errorMsg.innerText = "Token, Nomor WA, dan Nama Toko wajib diisi bos!";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            // Ganti UI ke Loading
+            errorMsg.classList.add('hidden');
+            document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('loading-section').classList.remove('hidden');
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, phone, namaToko, menuToko })
+                });
+
+                const data = await response.json();
+
+                if(response.ok) {
+                    // Sukses! Tunjukin Pairing Code
+                    document.getElementById('loading-section').classList.add('hidden');
+                    document.getElementById('success-section').classList.remove('hidden');
+                    
+                    // Format kode biar ada stripnya (contoh: 1234-5678)
+                    let code = data.pairingCode;
+                    if(code.length === 8 && !code.includes('-')) {
+                        code = code.substring(0,4) + '-' + code.substring(4,8);
+                    }
+                    document.getElementById('pairing-code-display').innerText = code;
+                } else {
+                    // Gagal (Token salah / nomor udah ada)
+                    throw new Error(data.error || 'Server error bos!');
+                }
+            } catch (err) {
+                // Balik ke Form, tunjukin error
+                document.getElementById('loading-section').classList.add('hidden');
+                document.getElementById('form-section').classList.remove('hidden');
+                errorMsg.innerText = err.message;
+                errorMsg.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
+
