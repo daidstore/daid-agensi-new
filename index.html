@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap');
         body { font-family: 'Inter', sans-serif; }
 
         @keyframes fadeUp {
@@ -22,7 +22,9 @@
             from { opacity: 0; transform: scale(0.95) translateY(20px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
-        .animate-modal { animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-modal { animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        .font-mono-code { font-family: 'Space Grotesk', monospace; }
 
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 4px; }
@@ -338,73 +340,93 @@
         </div>
     </div>
 
-    <div id="activation-modal" class="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="relative bg-white rounded-[32px] w-full max-w-md shadow-2xl overflow-hidden animate-modal">
+    <div id="activation-modal" class="fixed inset-0 z-[500] bg-slate-900/40 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="relative bg-white/95 backdrop-blur-2xl border border-white/60 rounded-[32px] w-full max-w-md shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden animate-modal transform transition-all">
             
-            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-[#f8f9fa]">
+            <div class="px-8 pt-8 pb-5 flex justify-between items-center border-b border-slate-100/50 relative z-10">
                 <div>
-                    <h3 class="text-xl font-800 text-slate-950 tracking-tight">Aktivasi Daid AI</h3>
-                    <p class="text-[10px] text-slate-500 font-600 uppercase tracking-widest mt-1">Sistem Injeksi Otomatis</p>
+                    <h3 class="text-2xl font-800 text-slate-900 tracking-tight">Aktivasi AI</h3>
+                    <p class="text-[10px] text-emerald-600 font-700 uppercase tracking-widest mt-0.5">Sistem Injeksi Otomatis</p>
                 </div>
-                <button onclick="tutupModalAktivasi()" class="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 shadow-sm rounded-full text-slate-500 hover:bg-slate-100 hover:text-rose-500 transition-colors">
+                <button onclick="tutupModalAktivasi()" class="w-8 h-8 flex items-center justify-center bg-slate-100/80 hover:bg-slate-200 rounded-full text-slate-500 transition-colors shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </div>
             
-            <div id="act-form-section" class="p-6 space-y-4">
-                <div>
-                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Token Lisensi (VIP / Rakyat)</label>
-                    <input type="text" id="act-token" placeholder="Masukkan token Anda..." class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm font-700 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all shadow-inner">
+            <div id="act-form-section" class="px-8 py-6 space-y-5 relative z-10">
+                <div class="space-y-3">
+                    <input type="text" id="act-token" placeholder="Token Lisensi (VIP/Rakyat)" class="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm font-500 text-slate-900 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all placeholder:text-slate-400 shadow-sm">
+                    
+                    <input type="number" id="act-phone" placeholder="Nomor Target (Ex: 62812...)" class="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm font-500 text-slate-900 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all placeholder:text-slate-400 shadow-sm">
                 </div>
-                <div>
-                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Nomor WA Target (Aktif)</label>
-                    <input type="number" id="act-phone" placeholder="Contoh: 628123456..." class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all shadow-inner">
+
+                <div class="space-y-3">
+                    <input type="text" id="act-nama" placeholder="Nama Toko Anda" class="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-500 text-slate-900 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all placeholder:text-slate-400 shadow-sm">
+                    
+                    <textarea id="act-menu" rows="2" placeholder="Knowledge Bot (Contoh: Jual Ebook Rp 50k)" class="w-full bg-slate-50/50 border border-slate-200 rounded-2xl px-4 py-3 text-sm font-500 text-slate-900 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all placeholder:text-slate-400 shadow-sm resize-none"></textarea>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Nama Toko / Bisnis Anda</label>
-                    <input type="text" id="act-nama" placeholder="Toko Daid Sejahtera" class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all shadow-inner">
+
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 space-y-3 shadow-inner">
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <div class="relative flex items-center justify-center mt-0.5 shrink-0">
+                            <input type="checkbox" id="check-slot" class="peer appearance-none w-4 h-4 border-2 border-slate-300 rounded-md checked:bg-emerald-500 checked:border-emerald-500 transition-all cursor-pointer" onchange="updateButtonState()">
+                            <svg class="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="text-[11px] md:text-xs text-slate-500 font-500 leading-relaxed group-hover:text-slate-800 transition-colors">Saya pastikan WA Web target <b class="text-slate-700">TIDAK PENUH</b> (Maks 4).</span>
+                    </label>
+                    <label class="flex items-start space-x-3 cursor-pointer group">
+                        <div class="relative flex items-center justify-center mt-0.5 shrink-0">
+                            <input type="checkbox" id="check-wait" class="peer appearance-none w-4 h-4 border-2 border-slate-300 rounded-md checked:bg-emerald-500 checked:border-emerald-500 transition-all cursor-pointer" onchange="updateButtonState()">
+                            <svg class="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="text-[11px] md:text-xs text-slate-500 font-500 leading-relaxed group-hover:text-slate-800 transition-colors">Jangan tutup popup ini saat perakitan berjalan.</span>
+                    </label>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-800 text-slate-500 mb-1.5 uppercase tracking-wider">Data Pengetahuan Bot (Menu / Aturan / Harga)</label>
-                    <textarea id="act-menu" rows="3" placeholder="Tulis bebas apapun yang mau bot Anda ketahui. Contoh: Saya jualan Ebook harganya 50k..." class="w-full bg-[#f8f9fa] border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all resize-none shadow-inner"></textarea>
+
+                <div id="act-error-container" class="hidden bg-rose-50 border border-rose-100 rounded-xl p-3">
+                    <p id="act-error" class="text-rose-600 text-[11px] font-600 leading-relaxed text-center"></p>
                 </div>
-                <button onclick="prosesAktivasi()" class="w-full bg-slate-950 hover:bg-emerald-500 text-white font-800 text-xs py-3.5 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/30 mt-2 uppercase tracking-widest">Generate Mesin AI</button>
-                <p id="act-error" class="text-rose-500 text-[11px] text-center font-700 mt-2 hidden"></p>
+
+                <button id="btn-submit-act" disabled onclick="prosesAktivasi()" class="w-full bg-slate-100 text-slate-400 cursor-not-allowed font-800 text-xs py-4 rounded-2xl transition-all uppercase tracking-widest mt-2">
+                    Setujui Syarat Eksekusi
+                </button>
             </div>
 
-            <div id="act-loading-section" class="hidden p-10 flex flex-col items-center justify-center min-h-[300px]">
-                <div class="w-12 h-12 border-4 border-slate-100 border-t-emerald-500 rounded-full animate-spin mb-4 shadow-sm"></div>
-                <p class="text-xs font-800 text-slate-900 animate-pulse uppercase tracking-widest mb-1">MENGHUBUNGKAN KE SERVER</p>
-                <p class="text-[10px] text-slate-500 font-500 text-center">Jangan tutup jendela ini. Proses memakan waktu 5-15 detik.</p>
+            <div id="act-loading-section" class="hidden px-8 py-14 flex flex-col items-center justify-center min-h-[350px]">
+                <div class="relative w-16 h-16 mb-6">
+                    <div class="absolute inset-0 border-4 border-slate-100 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin shadow-[0_0_15px_rgba(16,185,129,0.3)]"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-emerald-500">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                </div>
+                <p id="loading-title" class="text-xs font-900 text-slate-900 animate-pulse uppercase tracking-widest mb-1 text-center">MENYUSUP KE VPS</p>
+                <p id="loading-desc" class="text-[10px] text-slate-500 font-500 text-center px-4 leading-relaxed">Membuka gerbang khusus di server Jerman...</p>
             </div>
 
-            <div id="act-success-section" class="hidden p-8 text-center min-h-[300px] flex flex-col justify-center">
-                <div class="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-100">
+            <div id="act-success-section" class="hidden px-8 py-12 text-center min-h-[350px] flex flex-col justify-center">
+                <div class="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-5 border border-emerald-100 shadow-[0_10px_20px_rgba(16,185,129,0.1)]">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <h2 class="text-xl font-900 text-slate-950 mb-1">PAIRING CODE SIAP!</h2>
-                <p class="text-[10px] text-slate-500 font-600 mb-6 uppercase tracking-wider leading-relaxed">Buka WA Anda > Tautkan Perangkat > Tautkan dengan Nomor. Masukkan kode di bawah ini:</p>
+                <h2 class="text-xl font-900 text-slate-900 mb-1 tracking-tight">PAIRING CODE SIAP</h2>
+                <p class="text-[10px] text-slate-500 font-600 mb-6 uppercase tracking-widest leading-relaxed">Masukkan sandi ini ke WhatsApp target sekarang:</p>
                 
-                <div class="bg-slate-50 border-2 border-dashed border-emerald-300 rounded-2xl p-5 mb-2 shadow-inner">
-                    <p id="act-code-display" class="text-3xl md:text-4xl font-900 text-slate-900 tracking-[0.2em] font-mono">1234-5678</p>
+                <div class="bg-slate-50 border border-emerald-200 rounded-2xl p-6 mb-3 shadow-inner relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-30"></div>
+                    <p id="act-code-display" class="font-mono-code text-3xl md:text-4xl font-900 text-slate-900 tracking-[0.2em]">XXXX-XXXX</p>
                 </div>
-                <p class="text-[9px] text-rose-500 font-800 uppercase">*Kode kadaluarsa dalam 15 detik!</p>
+                <p class="text-[9px] text-emerald-600 font-800 uppercase tracking-widest">*Sistem terkunci pada nomor Anda.</p>
             </div>
         </div>
     </div>
 
     <script>
         // ==========================================
-        // 📚 DATA KATALOG ASLI LU
+        // 📚 DATA KATALOG ASLI LU (TIDAK ADA YANG BERUBAH)
         // ==========================================
         const dataProduk = {
             'starter': {
-                badge: 'PEMANASAN',
-                badgeColor: 'text-slate-500 bg-slate-100',
-                title: 'Starter AI',
-                price: 50000,
-                image: 'image1.png',
-                monthlyNote: 'Estimasi Server: Rp 20.000/bln',
+                badge: 'PEMANASAN', badgeColor: 'text-slate-500 bg-slate-100', title: 'Starter AI', price: 50000, image: 'image1.png', monthlyNote: 'Estimasi Server: Rp 20.000/bln',
                 description: `
                     <div class="mb-6 bg-gradient-to-br from-slate-50 to-slate-100 p-5 rounded-2xl border border-slate-200/60 shadow-sm">
                         <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">🚀</span> Karyawan Digital Pertamamu</p>
@@ -420,16 +442,10 @@
                             <div><strong class="text-slate-900 block text-sm font-700">Integrasi Web/Link Biasa</strong><span class="text-slate-500 text-xs">Pemasangan simpel, langsung live di ekosistem bisnismu.</span></div>
                         </li>
                     </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Starter+(Rp+50.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
+                `, actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Starter+(Rp+50.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
             },
             'pro': {
-                badge: 'BEST SELLER',
-                badgeColor: 'text-blue-700 bg-blue-50',
-                title: 'Pro Sales AI',
-                price: 250000,
-                image: 'image2.png',
-                monthlyNote: 'Estimasi Server & API: Rp 99.000/bln',
+                badge: 'BEST SELLER', badgeColor: 'text-blue-700 bg-blue-50', title: 'Pro Sales AI', price: 250000, image: 'image2.png', monthlyNote: 'Estimasi Server & API: Rp 99.000/bln',
                 description: `
                     <div class="mb-6 bg-gradient-to-br from-blue-50 to-slate-50 p-5 rounded-2xl border border-blue-100/60 shadow-sm">
                         <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">🤖</span> Mesin Pencetak Closing</p>
@@ -445,16 +461,10 @@
                             <div><strong class="text-slate-900 block text-sm font-700">Multi-Channel Support</strong><span class="text-slate-500 text-xs">Bisa dicolok langsung ke WhatsApp, Instagram DM, atau Telegram.</span></div>
                         </li>
                     </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Pro+Sales+(Rp+250.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
+                `, actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Pro+Sales+(Rp+250.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
             },
             'ultimate': {
-                badge: 'RECOMMENDED',
-                badgeColor: 'text-amber-700 bg-amber-100',
-                title: 'Ultimate Manager',
-                price: 500000,
-                image: 'image3.png',
-                monthlyNote: 'Estimasi Server & API: Rp 199.000/bln',
+                badge: 'RECOMMENDED', badgeColor: 'text-amber-700 bg-amber-100', title: 'Ultimate Manager', price: 500000, image: 'image3.png', monthlyNote: 'Estimasi Server & API: Rp 199.000/bln',
                 description: `
                     <div class="mb-6 bg-gradient-to-br from-amber-50 to-slate-50 p-5 rounded-2xl border border-amber-100/60 shadow-sm">
                         <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">💼</span> Eksekutif Digital Otonom</p>
@@ -470,16 +480,10 @@
                             <div><strong class="text-slate-900 block text-sm font-700">Analisis Sentimen Pelanggan</strong><span class="text-slate-500 text-xs">Otomatis meneruskan tiket obrolan ke admin manusia jika customer komplain/marah.</span></div>
                         </li>
                     </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Ultimate+(Rp+500.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
+                `, actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Daid+Store,+Gua+mau+beli+Paket+Ultimate+(Rp+500.000).+Minta+nomor+DANA/Gopay+nya+Bos!'; }
             },
             'custom': {
-                badge: 'ENTERPRISE',
-                badgeColor: 'text-purple-700 bg-purple-50',
-                title: 'Sistem Dewa (Custom)',
-                price: 5000000,
-                image: 'image4.png',
-                monthlyNote: 'Maintenance Fee: Sesuai Kontrak SLA',
+                badge: 'ENTERPRISE', badgeColor: 'text-purple-700 bg-purple-50', title: 'Sistem Dewa (Custom)', price: 5000000, image: 'image4.png', monthlyNote: 'Maintenance Fee: Sesuai Kontrak SLA',
                 description: `
                     <div class="mb-6 bg-gradient-to-br from-purple-50 to-slate-50 p-5 rounded-2xl border border-purple-100/60 shadow-sm">
                         <p class="font-800 text-slate-900 text-base mb-2 flex items-center"><span class="text-xl mr-2">👑</span> Dominasi Total Ekosistem AI</p>
@@ -495,14 +499,11 @@
                             <div><strong class="text-slate-900 block text-sm font-700">Advanced API & Webhooks</strong><span class="text-slate-500 text-xs">Integrasi tanpa batas ke sistem ERP, gudang, logistik perusahaan.</span></div>
                         </li>
                     </ul>
-                `,
-                actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Bos+Adlun,+Gua+mau+konsultasi+Sistem+Dewa+Custom'; }
+                `, actionFunction: function() { window.location.href = 'https://wa.me/62895633966339?text=Halo+Bos+Adlun,+Gua+mau+konsultasi+Sistem+Dewa+Custom'; }
             }
         };
 
-        function formatRupiah(angka) {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
-        }
+        function formatRupiah(angka) { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka); }
 
         function bukaDetailProduk(id) {
             const p = dataProduk[id];
@@ -513,12 +514,9 @@
             document.getElementById('detail-monthly-note').innerText = p.monthlyNote;
             document.getElementById('detail-description').innerHTML = p.description;
             document.getElementById('detail-price').innerText = formatRupiah(p.price);
-            
-            const actionBtn = document.getElementById('detail-action-btn');
-            actionBtn.onclick = p.actionFunction;
+            document.getElementById('detail-action-btn').onclick = p.actionFunction;
 
             document.getElementById('fab-konsultasi').classList.add('opacity-0', 'pointer-events-none');
-            
             document.getElementById('product-detail-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
@@ -530,7 +528,7 @@
         }
 
         // ==========================================
-        // 🟢 FUNGSI AKTIVASI MESIN AI (DIBAWAH INI BARU)
+        // 🟢 FUNGSI AKTIVASI MESIN AI (UI/UX KELAS DEWA)
         // ==========================================
         const API_PABRIK = "http://213.199.40.155:3000/api/generate-bot"; // IP VPS LU BOS!
 
@@ -538,11 +536,14 @@
             document.getElementById('activation-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             
-            // Reset ke tampilan form tiap kali dibuka
             document.getElementById('act-form-section').classList.remove('hidden');
             document.getElementById('act-loading-section').classList.add('hidden');
             document.getElementById('act-success-section').classList.add('hidden');
-            document.getElementById('act-error').classList.add('hidden');
+            document.getElementById('act-error-container').classList.add('hidden');
+
+            document.getElementById('check-slot').checked = false;
+            document.getElementById('check-wait').checked = false;
+            updateButtonState();
         }
 
         function tutupModalAktivasi() {
@@ -550,23 +551,51 @@
             document.body.style.overflow = 'auto';
         }
 
+        function updateButtonState() {
+            const checkSlot = document.getElementById('check-slot').checked;
+            const checkWait = document.getElementById('check-wait').checked;
+            const btn = document.getElementById('btn-submit-act');
+
+            if (checkSlot && checkWait) {
+                btn.disabled = false;
+                btn.className = "w-full bg-slate-900 hover:bg-emerald-500 text-white cursor-pointer font-800 text-xs py-4 rounded-2xl transition-all uppercase tracking-widest mt-2 shadow-[0_10px_25px_-5px_rgba(16,185,129,0.3)] transform hover:-translate-y-0.5";
+                btn.innerText = "Eksekusi Injeksi AI";
+            } else {
+                btn.disabled = true;
+                btn.className = "w-full bg-slate-100 text-slate-400 cursor-not-allowed font-800 text-xs py-4 rounded-2xl transition-all uppercase tracking-widest mt-2";
+                btn.innerText = "Setujui Syarat Eksekusi";
+            }
+        }
+
         async function prosesAktivasi() {
             const token = document.getElementById('act-token').value.trim();
             const phone = document.getElementById('act-phone').value.trim();
             const namaToko = document.getElementById('act-nama').value.trim();
             const menuToko = document.getElementById('act-menu').value.trim();
+            const errorContainer = document.getElementById('act-error-container');
             const errorMsg = document.getElementById('act-error');
 
             if(!token || !phone || !namaToko) {
-                errorMsg.innerText = "Token, Nomor WA, dan Nama Toko wajib diisi bos!";
-                errorMsg.classList.remove('hidden');
+                errorMsg.innerText = "Akses Ditolak: Kredensial (Token, WA, Nama) wajib diisi.";
+                errorContainer.classList.remove('hidden');
                 return;
             }
 
-            // Ganti ke loading screen
-            errorMsg.classList.add('hidden');
+            errorContainer.classList.add('hidden');
             document.getElementById('act-form-section').classList.add('hidden');
             document.getElementById('act-loading-section').classList.remove('hidden');
+
+            const titleEl = document.getElementById('loading-title');
+            const descEl = document.getElementById('loading-desc');
+            const phrases = [
+                { title: "MENGAMANKAN JALUR VPS", desc: "Membuka gerbang khusus di server Jerman..." },
+                { title: "SINKRONISASI META", desc: "Meminta jatah enkripsi resmi dari sistem WhatsApp..." },
+                { title: "MERAKIT OTAK KASIR", desc: "Finalisasi database... tahan sebentar." }
+            ];
+            let pIdx = 0;
+            const loadInt = setInterval(() => {
+                if(pIdx < phrases.length) { titleEl.innerText = phrases[pIdx].title; descEl.innerText = phrases[pIdx].desc; pIdx++; }
+            }, 2500);
 
             try {
                 const response = await fetch(API_PABRIK, {
@@ -576,9 +605,9 @@
                 });
 
                 const data = await response.json();
+                clearInterval(loadInt);
 
                 if(response.ok) {
-                    // Berhasil narik kode dari VPS lu
                     document.getElementById('act-loading-section').classList.add('hidden');
                     document.getElementById('act-success-section').classList.remove('hidden');
                     
@@ -588,16 +617,22 @@
                     }
                     document.getElementById('act-code-display').innerText = code;
                 } else {
-                    throw new Error(data.error || 'Server error bos!');
+                    document.getElementById('act-loading-section').classList.add('hidden');
+                    document.getElementById('act-form-section').classList.remove('hidden');
+                    
+                    if(response.status === 429 || response.status === 428 || data.error?.toLowerCase().includes('pairing')) {
+                         errorMsg.innerHTML = `⚠️ Sistem keamanan WhatsApp mendeteksi antrean padat.<br><br><b>Tindakan:</b> Harap tunggu <b>15 Menit</b>, lalu eksekusi kembali.`;
+                    } else { errorMsg.innerText = data.error || 'Terjadi anomali sistem!'; }
+                    errorContainer.classList.remove('hidden');
                 }
             } catch (err) {
-                // Gagal, balik lagi ke form
+                clearInterval(loadInt);
                 document.getElementById('act-loading-section').classList.add('hidden');
                 document.getElementById('act-form-section').classList.remove('hidden');
-                errorMsg.innerText = err.message;
-                errorMsg.classList.remove('hidden');
+                errorMsg.innerText = "Koneksi ke arsitektur VPS terputus. Periksa jaringan Anda.";
+                errorContainer.classList.remove('hidden');
             }
         }
     </script>
 </body>
-    </html>
+</html>
